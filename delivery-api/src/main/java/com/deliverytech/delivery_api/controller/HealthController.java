@@ -8,16 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 public class HealthController {
-	
-	@GetMapping("/")
-	public String hello(){
-		return "Olá mundo do Spring Boot!!";
-	}
-	
-	@GetMapping("/api/status")
-	public String status() {
-		return "Aplicação funcionando!!";
-	}
 
     @GetMapping("/health")
     public Map<String, String> health() {
