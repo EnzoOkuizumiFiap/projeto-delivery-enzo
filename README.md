@@ -33,12 +33,5 @@ Sistema de delivery desenvolvido com Spring Boot e Java 21.
 - Profile: development
 
 ## 👨‍💻 Desenvolvedor
-[Seu Nome] - [Sua Turma]  
+Enzo Okuizumi - SDE TI 13 ARQUITETURA DE SISTEMAS (TARDE) 02458 13h30 às 16h50  
 Desenvolvido com JDK 21 e Spring Boot 3.2.x
- 
-Entregável:
-✅ README.md completo e bem formatado (destacando uso do JDK 21)
-
-✅ Repositório GitHub atualizado com todos os commits
-
-✅ Aplicação funcionando 100% com JDK 21
