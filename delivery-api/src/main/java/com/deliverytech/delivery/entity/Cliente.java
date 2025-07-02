@@ -15,6 +15,6 @@ public class Cliente {
     private String telefone;
     private String endereco;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedidos;
+    //@OneToMany(mappedBy = "cliente")
+    //private List<Pedido> pedidos;
 }

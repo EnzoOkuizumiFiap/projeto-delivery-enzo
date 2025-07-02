@@ -17,15 +17,15 @@ public class Pedido {
     private String status;
     private BigDecimal valorTotal;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurante_id")
     private Restaurante restaurante;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "pedido_produto",
         joinColumns = @JoinColumn(name = "pedido_id"),
@@ -33,5 +33,3 @@ public class Pedido {
     )
     private List<Produto> itens;
 }
-
- 

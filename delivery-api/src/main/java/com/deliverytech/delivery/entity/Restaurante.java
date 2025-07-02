@@ -1,5 +1,6 @@
 package com.deliverytech.delivery.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Restaurante {
     private String cnpj;
     private String endereco;
 
-    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore // Evita recursão infinita e lazy loading issues
     private List<Produto> cardapio;
 }
