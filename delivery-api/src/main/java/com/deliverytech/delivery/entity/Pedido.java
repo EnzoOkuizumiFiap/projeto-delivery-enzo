@@ -36,22 +36,5 @@ public class Pedido {
     private Restaurante restaurante;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-    private List<ItemPedido> itens = new ArrayList<>();
-
-    // ✅ Método para adicionar item ao pedido
-    public void adicionarItem(ItemPedido item) {
-        item.setPedido(this);
-        this.itens.add(item);
-    }
-
-    // ✅ Método para confirmar o pedido
-    public void confirmar() {
-        this.status = StatusPedido.CONFIRMADO;
-        this.dataPedido = LocalDateTime.now();
-    }
-
-    // ✅ Getter extra para observações, se não estiver sendo gerado
-    public String getObservacoes() {
-        return observacoes;
-    }
+    private List<ItemPedido> itens;
 }
