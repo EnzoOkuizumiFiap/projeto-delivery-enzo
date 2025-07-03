@@ -1,8 +1,10 @@
+
 package com.deliverytech.delivery.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -12,10 +14,15 @@ public class Restaurante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String cnpj;
+    private String categoria;
     private String endereco;
+    private String telefone;
+    private BigDecimal taxaEntrega;
+    private boolean ativo;
 
-    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore // Evita recursão infinita e lazy loading issues
-    private List<Produto> cardapio;
+    @OneToMany(mappedBy = "restaurante")
+    private List<Produto> produtos;
+
+    @OneToMany(mappedBy = "restaurante")
+    private List<Pedido> pedidos;
 }
