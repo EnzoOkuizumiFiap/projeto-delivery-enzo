@@ -1,5 +1,6 @@
 package com.deliverytech.delivery.service;
 
+import com.deliverytech.delivery.enums.StatusPedido;
 import com.deliverytech.delivery.entity.*;
 import com.deliverytech.delivery.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
