@@ -1,15 +1,12 @@
-# Etapa 1: imagem base com Java
-FROM openjdk:21-jdk-slim
-
-# Etapa 2: define o diretório de trabalho dentro do contêiner
+# Etapa de build
+FROM maven:3.9.10-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Etapa 3: copia o arquivo JAR para dentro do contêiner
-COPY target/seu-app.jar app.jar
-
-# Etapa 4: expõe a porta usada pela aplicação Spring Boot
+# Etapa de runtime
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/delivery-api-1.0.0.jar app.jar
 EXPOSE 8080
-
-# Etapa 5: comando para rodar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
- 
